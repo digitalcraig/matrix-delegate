@@ -10,6 +10,8 @@ var app = http.createServer(function(req,res){
         mserver = "matrix."+req.headers.host.split(":")[0];
     }
 
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify({ "m.server" : mserver+":"+port }, null, 3));
 });
