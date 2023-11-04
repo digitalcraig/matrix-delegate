@@ -18,7 +18,8 @@ var app = http.createServer(function(req,res){
     if (syncserver != null) {
         res.end(JSON.stringify({"m.server" : mserver+":"+port,
                                 "m.homeserver" : mserver+":"+port,   
-                                "org.matrix.msc3575.proxy": syncserver+":"+syncport}, null, 3));
+                                "org.matrix.msc3575.proxy": {
+                                     "url": syncserver+":"+syncport }}, null, 3));
     } else {
         res.end(JSON.stringify({"m.server" : mserver+":"+port, 
                                 "m.homeserver" : mserver+":"+port,}, null, 3));
